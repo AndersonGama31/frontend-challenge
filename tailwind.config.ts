@@ -14,9 +14,9 @@ const config: Config = {
         'destructive': 'var(--destructive)',
         'dark': 'var(--dark)',
         'border': 'var(--border)',
-        'text-dark': 'var(--text-dark)',
         'pink': 'var(--pink)',
         'light-pink': 'var(--light-pink)',
+        'light-gray': 'var(--light-gray)',
       },
       borderRadius: {
         'radius-4': 'var(--radius-4)',
@@ -25,13 +25,6 @@ const config: Config = {
         'radius-30': 'var(--radius-30)',
         'radius-70': 'var(--radius-70)',
         'radius-100': 'var(--radius-100)',
-      },
-      fontSize: {
-        sm: 'var(--font-size-sm)',
-        base: 'var(--font-size-base)',
-        md: 'var(--font-size-md)',
-        lg: 'var(--font-size-lg)',
-        xl: 'var(--font-size-xl)',
       },
       lineHeight: {
         sm: 'var(--line-height-sm)',

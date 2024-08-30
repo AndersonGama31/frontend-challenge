@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
-import { IBM_Plex_Sans } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 
 import './globals.css'
+import { cn } from '@/lib/utils'
 
-const inter = IBM_Plex_Sans({
+const roboto = Roboto({
   subsets: ['latin'],
-  weight: ['400', '500', '700']
+  weight: ['400', '500', '700', '900']
 })
 
 export const metadata: Metadata = {
-  title: 'SEVN NEWS',
-  description: 'The latest news from around the world.'
+  title: 'InstaCarro Frontend Challenge',
+  description: 'Explore o universo e crie sua equipe de heróis'
 }
 
 export default function RootLayout({
@@ -20,7 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      {/* <body className={roboto.className}> */}
+      <body className={cn(roboto.className, 'flex justify-center h-screen bg-white')}>{children}</body>
     </html>
   )
 }
