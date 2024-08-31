@@ -45,6 +45,8 @@ export default function HomePage() {
     refetch()
   }, [debouncedValue])
 
+  const totalResults = data?.pages?.reduce((acc, page) => acc + page?.results?.length, 0)
+
   return (
     <main className="flex flex-col items-center h-screen space-y-8 max-w-screen-xl px-20 pt-20">
       <section className="flex flex-col items-center justify-center gap-2">
@@ -61,7 +63,7 @@ export default function HomePage() {
         <div className="flex items-center justify-between w-full">
           <p className="text-2xl font-semibold text-light-gray">
             {/* Encontrados {data?.pages?.[0]?.results?.length} heróis */}
-            Encontrados {data?.pages?.reduce((acc, page) => acc + page?.results?.length, 0)} heróis
+            Encontrados {totalResults} heróis
           </p>
 
           <p className="text-2xl font-medium text-destructive/70 cursor-pointer" onClick={() => alert('Favoritos')}>
