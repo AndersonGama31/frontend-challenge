@@ -1,3 +1,5 @@
 export { Input } from './input'
 export { HeroCard } from './hero-card'
 export { Footer } from './footer'
+export { Parallax } from './parallax'
+export { ComicsCard } from './comics-card'
