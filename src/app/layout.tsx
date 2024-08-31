@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <body className={roboto.className}> */}
-      <body className={cn(roboto.className, 'flex justify-center h-screen bg-white')}>
+      <body className={cn(roboto.className, 'flex justify-center h-screen bg-background overflow-x-hidden')}>
         <Provider>{children}</Provider>
       </body>
     </html>
