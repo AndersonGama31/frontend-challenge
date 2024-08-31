@@ -11,7 +11,7 @@ import * as charactersService from '@/services/modules/characters'
 import { useInfiniteQuery } from '@tanstack/react-query'
 
 export default function HomePage() {
-  const [params, setParams] = useState<ICharactersParams>({ limit: 8, offset: 0 })
+  const [params, setParams] = useState<ICharactersParams>({ limit: 16, offset: 0 })
   const { ref, inView } = useInView()
   const debouncedValue = useDebounce(params.nameStartsWith, 1000)
 
@@ -22,11 +22,11 @@ export default function HomePage() {
     getNextPageParam: (lastPage, allPages) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      if (lastPage?.length < 8) {
+      if (lastPage?.length < 16) {
         return undefined
       }
 
-      return allPages?.length * 8
+      return allPages?.length * 16
     }
   })
 
@@ -38,10 +38,11 @@ export default function HomePage() {
 
   const handleChangeParams = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { value, name } = event.target
-    setParams(prevState => ({ ...prevState, [name]: value || undefined }))
+    setParams(prevState => ({ ...prevState, [name]: value || undefined, offset: 0 }))
   }
 
   useEffect(() => {
+    setParams(prevState => ({ ...prevState, offset: 0 }))
     refetch()
   }, [debouncedValue])
 
