@@ -8,6 +8,7 @@ import { Loader } from 'lucide-react'
 import * as Component from '@/components'
 import { useDebounce } from '@/hooks/useDebounce'
 import * as charactersService from '@/services/modules/characters'
+import { ICharactersParams } from '@/services/modules/characters/interface'
 import { useInfiniteQuery } from '@tanstack/react-query'
 
 export default function HomePage() {
