@@ -1,8 +1,17 @@
 'use client'
 
+import { useEffect } from 'react'
+
 import * as Component from '@/components'
+import { list } from '@/services/modules/characters'
 
 export default function HomePage() {
+  useEffect(() => {
+    ;(async () => {
+      const data = await list()
+      console.log(data)
+    })()
+  }, [])
   return (
     <main className="flex flex-col items-center h-screen space-y-8 max-w-screen-xl px-20 pt-20">
       <section className="flex flex-col items-center justify-center space-y-8">
