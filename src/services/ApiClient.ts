@@ -29,7 +29,7 @@ class MarvelApiClient {
         })
 
         this.api.interceptors.response.use(
-            response => response.data,
+            response => response.data?.data,
             error => Promise.reject(error)
         )
     }
