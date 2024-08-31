@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google'
 
 import './globals.css'
 import { cn } from '@/lib/utils'
+import Provider from '@/utils/providers'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <body className={roboto.className}> */}
-      <body className={cn(roboto.className, 'flex justify-center h-screen bg-white')}>{children}</body>
+      <body className={cn(roboto.className, 'flex justify-center h-screen bg-white')}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   )
 }

@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@tanstack/react-query':
+    specifier: ^5.53.1
+    version: 5.53.1(react@18.3.1)
+  '@tanstack/react-query-devtools':
+    specifier: ^5.53.1
+    version: 5.53.1(@tanstack/react-query@5.53.1)(react@18.3.1)
   '@typescript-eslint/eslint-plugin':
     specifier: ^8.3.0
     version: 8.3.0(@typescript-eslint/parser@8.3.0)(eslint@8.57.0)(typescript@5.5.4)
@@ -17,6 +23,9 @@ dependencies:
   lucide-react:
     specifier: ^0.436.0
     version: 0.436.0(react@18.3.1)
+  md5:
+    specifier: ^2.3.0
+    version: 2.3.0
   next:
     specifier: 14.2.7
     version: 14.2.7(react-dom@18.3.1)(react@18.3.1)
@@ -34,6 +43,9 @@ dependencies:
     version: 2.5.2
 
 devDependencies:
+  '@types/md5':
+    specifier: ^2.3.5
+    version: 2.3.5
   '@types/node':
     specifier: ^20
     version: 20.16.2
@@ -58,6 +70,9 @@ devDependencies:
   eslint-plugin-prettier:
     specifier: ^5.2.1
     version: 5.2.1(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.3.3)
+  eslint-plugin-query]:
+    specifier: link:@tanstack/eslint-plugin-query]
+    version: link:@tanstack/eslint-plugin-query]
   eslint-plugin-react:
     specifier: ^7.35.0
     version: 7.35.0(eslint@8.57.0)
@@ -316,8 +331,40 @@ packages:
       tslib: 2.7.0
     dev: false
 
+  /@tanstack/query-core@5.53.1:
+    resolution: {integrity: sha512-mvLG7s4Zy3Yvc2LsKm8BVafbmPrsReKgqwhmp4XKVmRW9us3KbWRqu3qBBfhVavcUUEHfNK7PvpTchvQpVdFpw==}
+    dev: false
+
+  /@tanstack/query-devtools@5.52.3:
+    resolution: {integrity: sha512-oGX9qJuNpr4vOQyeksqHr+FgLQGs5UooK87R1wTtcsUUdrRKGSgs3cBllZMtWBJxg+yVvg0TlHNGYLMjvqX3GA==}
+    dev: false
+
+  /@tanstack/react-query-devtools@5.53.1(@tanstack/react-query@5.53.1)(react@18.3.1):
+    resolution: {integrity: sha512-AjShRLM3/9Rglgeo0X52M8MKPEvcNnFQvs3yZq8ExQWu8YhZMzqVsFVn4PqOeyEHbnsRS2bmi0jPP/tBrlWU0A==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.53.1
+      react: ^18 || ^19
+    dependencies:
+      '@tanstack/query-devtools': 5.52.3
+      '@tanstack/react-query': 5.53.1(react@18.3.1)
+      react: 18.3.1
+    dev: false
+
+  /@tanstack/react-query@5.53.1(react@18.3.1):
+    resolution: {integrity: sha512-35HU4836Ey1/W74BxmS8p9KHXcDRGPdkw6w3VX0Tc5S9v5acFl80oi/yc6nsmoLhu68wQkWMyX0h7y7cOtY5OA==}
+    peerDependencies:
+      react: ^18 || ^19
+    dependencies:
+      '@tanstack/query-core': 5.53.1
+      react: 18.3.1
+    dev: false
+
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: true
+
+  /@types/md5@2.3.5:
+    resolution: {integrity: sha512-/i42wjYNgE6wf0j2bcTX6kuowmdL/6PE4IVitMpm2eYKBUuYCprdcWVK+xEF0gcV6ufMCRhtxmReGfc6hIK7Jw==}
     dev: true
 
   /@types/node@20.16.2:
@@ -794,6 +841,10 @@ packages:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
+  /charenc@0.0.2:
+    resolution: {integrity: sha512-yrLQ/yVUFXkzg7EDQsPieE/53+0RlaWTs+wBrvW36cyilJ2SaDWfl4Yj7MtLTXleV9uEKefbAGUPv2/iWSooRA==}
+    dev: false
+
   /chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
@@ -849,6 +900,10 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  /crypt@0.0.2:
+    resolution: {integrity: sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==}
+    dev: false
 
   /cssesc@3.0.0:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
@@ -1806,6 +1861,10 @@ packages:
       has-tostringtag: 1.0.2
     dev: true
 
+  /is-buffer@1.1.6:
+    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
+    dev: false
+
   /is-bun-module@1.1.0:
     resolution: {integrity: sha512-4mTAVPlrXpaN3jtF0lsnPCMGnq4+qZjVIKq0HCpfcqf8OC1SM5oATCIAPM5V5FN05qp2NNnFndphmdZS9CV3hA==}
     dependencies:
@@ -2087,6 +2146,14 @@ packages:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
     dependencies:
       react: 18.3.1
+    dev: false
+
+  /md5@2.3.0:
+    resolution: {integrity: sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==}
+    dependencies:
+      charenc: 0.0.2
+      crypt: 0.0.2
+      is-buffer: 1.1.6
     dev: false
 
   /merge2@1.4.1:
