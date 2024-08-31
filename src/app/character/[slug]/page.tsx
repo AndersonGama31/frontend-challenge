@@ -9,8 +9,6 @@ export default function Page({ params }: { params: { slug: string } }) {
   const { slug } = params
   const { data, isLoading, isFetched } = useGetCharacterComics(slug)
 
-  console.log(data)
-
   return (
     <main className="flex flex-col items-center h-screen max-w-screen-xl px-20">
       {isLoading && <Loader className="w-20 h-20 animate-spin mt-10" />}
