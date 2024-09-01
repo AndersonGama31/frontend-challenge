@@ -59,6 +59,8 @@ export default function HomePage() {
     setParams(prevState => ({ ...prevState, [name]: value || undefined, offset: 0 }))
   }
 
+  const filteredFavorites = favoriteCharacters?.filter(hero => hero.name.toLowerCase().includes(debouncedValue ?? ''))
+
   return (
     <main className="flex flex-col items-center h-screen space-y-8 max-w-screen-xl px-4 sm:px-6 lg:px-8 pt-20">
       <section className="flex flex-col items-center justify-center gap-2 text-center w-full">
@@ -96,7 +98,7 @@ export default function HomePage() {
           <>
             {filterFavorites ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 mt-8">
-                {favoriteCharacters?.map(hero => <Component.HeroCard key={hero.id} {...hero} />)}
+                {filteredFavorites?.map(hero => <Component.HeroCard key={hero.id} {...hero} />)}
               </div>
             ) : (
               <>
