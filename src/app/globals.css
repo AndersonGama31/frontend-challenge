@@ -27,8 +27,8 @@
     --line-height-lg: 3.076rem; /* 49px */
     --line-height-xl: 3.516rem; /* 56px */
 
-    --breakpoint-sm: 640px;
-    --breakpoint-md: 768px;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 850px;
     --breakpoint-lg: 1024px;
     --breakpoint-xl: 1280px;
   }

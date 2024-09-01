@@ -59,25 +59,25 @@ export default function HomePage() {
   }
 
   return (
-    <main className="flex flex-col items-center h-screen space-y-8 max-w-screen-xl px-20 pt-20">
-      <section className="flex flex-col items-center justify-center gap-2">
-        <h1 className="text-5xl font-black text-center text-dark">EXPLORE O UNIVERSO E CRIE SUA EQUIPE</h1>
-        <p className="text-center text-dark opacity-60 mb-5">
+    <main className="flex flex-col items-center h-screen space-y-8 max-w-screen-xl px-4 sm:px-6 lg:px-8 pt-20">
+      <section className="flex flex-col items-center justify-center gap-2 text-center w-full">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-dark">EXPLORE O UNIVERSO E CRIE SUA EQUIPE</h1>
+        <p className="text-dark opacity-60 mb-5">
           Os melhores personagens já feitos em quadrinhos. Fique viciado em uma generosa porção de heróis e vilões!
         </p>
-        <div className="flex items-center justify-center w-[780px] mt-2">
+        <div className="flex items-center justify-center w-full sm:w-[780px] mt-2">
           <Component.Input type="text" name="nameStartsWith" onChange={handleChangeParams} />
         </div>
       </section>
 
       <section className="flex flex-col items-center justify-center w-full">
-        <div className="flex items-center justify-between w-full">
-          <p className="text-2xl font-semibold text-light-gray">Encontrados {totalResults()} heróis</p>
+        <div className="flex flex-col sm:flex-row items-center justify-between w-full">
+          <p className="text-lg sm:text-2xl font-semibold text-light-gray">Encontrados {totalResults()} heróis</p>
 
-          <div className="flex items-center justify-center gap-4">
-            <Heart className={'w-8 h-8 text-destructive cursor-pointer fill-current'} />
+          <div className="flex items-center justify-center gap-4 mt-4 sm:mt-0">
+            <Heart className={'w-6 h-6 sm:w-8 sm:h-8 text-destructive cursor-pointer fill-current'} />
             <p
-              className="text-2xl font-medium text-[#f5706f] cursor-pointer"
+              className="text-lg sm:text-2xl font-medium text-[#f5706f] cursor-pointer"
               onClick={() => setFilterFavorites(!filterFavorites)}
             >
               {filterFavorites ? 'Todos os heróis' : 'Somente favoritos'}
@@ -90,12 +90,12 @@ export default function HomePage() {
         {isFetched && (
           <>
             {filterFavorites ? (
-              <div className="grid grid-cols-4 gap-8 mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 mt-8">
                 {favoriteCharacters?.map(hero => <Component.HeroCard key={hero.id} {...hero} />)}
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-4 gap-8 mt-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 mt-8">
                   {data?.pages?.map(page => page?.results?.map(hero => <Component.HeroCard key={hero.id} {...hero} />))}
                 </div>
                 <div ref={ref} className="h-5" />
