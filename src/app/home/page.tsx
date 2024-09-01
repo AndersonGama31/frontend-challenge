@@ -7,6 +7,7 @@ import { Heart, Loader } from 'lucide-react'
 
 import * as Component from '@/components'
 import { useDebounce } from '@/hooks/useDebounce'
+import { cn } from '@/lib/utils'
 import * as charactersService from '@/services/modules/characters'
 import { ICharactersParams } from '@/services/modules/characters/interface'
 import useCharacterStore from '@/stores/useCharacterStore'
@@ -75,12 +76,16 @@ export default function HomePage() {
           <p className="text-lg sm:text-2xl font-semibold text-light-gray">Encontrados {totalResults()} heróis</p>
 
           <div className="flex items-center justify-center gap-4 mt-4 sm:mt-0">
-            <Heart className={'w-6 h-6 sm:w-8 sm:h-8 text-destructive cursor-pointer fill-current'} />
+            <Heart
+              className={cn('w-6 h-6 sm:w-8 sm:h-8 text-destructive cursor-pointer', {
+                'fill-current': filterFavorites
+              })}
+            />
             <p
               className="text-lg sm:text-2xl font-medium text-[#f5706f] cursor-pointer"
               onClick={() => setFilterFavorites(!filterFavorites)}
             >
-              {filterFavorites ? 'Todos os heróis' : 'Somente favoritos'}
+              Somente favoritos
             </p>
           </div>
         </div>
