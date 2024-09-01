@@ -11,15 +11,15 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main className="flex flex-col items-center h-screen max-w-screen-xl px-20">
+      <section className="flex w-screen relative">
+        <Components.Parallax />
+      </section>
+
       {isLoading && <Loader className="w-20 h-20 animate-spin mt-10" />}
 
       {isFetched && (
         <>
-          <section className="flex w-screen relative">
-            <Components.Parallax />
-          </section>
-
-          <section className="flex flex-col items-center w-full mt-[200px] gap-12">
+          <section className="flex flex-col items-center w-full mt-[200px] gap-12 pb-20">
             {data?.results?.map(comic => <Components.ComicsCard key={comic.id} {...comic} />)}
           </section>
         </>

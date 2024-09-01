@@ -17,12 +17,10 @@ export const Parallax: React.FC = () => {
     return 'hero.svg'
   }
 
-  console.log(character)
-
   return (
     <>
       <div className="w-full h-[578px] relative">
-        <Image src={'/background.svg'} alt="hero" layout="fill" objectFit="cover" />
+        <Image src={'/background.svg'} alt="hero" layout="fill" objectFit="cover" priority />
         <h1 className="absolute top-20 left-20 text-white text-5xl font-black p-5 w-[600px ] leading-xl">
           DESCUBRA TODOS OS
           <br />
