@@ -50,7 +50,7 @@ export default function HomePage() {
 
   const totalResults = () => {
     if (filterFavorites) {
-      return favoriteCharacters.length
+      return filteredFavorites?.length
     }
     return data?.pages?.reduce((acc, page) => acc + page.results.length, 0)
   }
