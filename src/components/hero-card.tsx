@@ -2,19 +2,24 @@
 
 import React from 'react'
 
+import { Heart } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
+import { cn } from '@/lib/utils'
 import { IGetCharactersResponse } from '@/services/modules/characters/interface'
 import useCharacterStore from '@/stores/useCharacterStore'
 
 type IProps = IGetCharactersResponse['results'][0]
 
-export const HeroCard: React.FC<IProps> = ({ id, name, description, thumbnail }) => {
+export const HeroCard: React.FC<IProps> = ({ id, name, description, thumbnail, ...props }) => {
   const router = useRouter()
 
+  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
   const {
-    actions: { setCharacter }
+    actions: { setCharacter, addCharacterToFavorites, removeCharacterFromFavorites },
+    state: { favoriteCharacters }
   } = useCharacterStore()
 
   const handleRedirect = () => {
@@ -22,12 +27,24 @@ export const HeroCard: React.FC<IProps> = ({ id, name, description, thumbnail })
   }
 
   const handleSetCharacter = () => {
-    setCharacter({ id, name, description, thumbnail })
+    setCharacter({ id, name, description, thumbnail, ...props })
   }
 
   const handleSetCharacterAndRedirect = () => {
     handleSetCharacter()
-    handleRedirect()
+    delay(100).then(() => handleRedirect())
+  }
+
+  const isFavorite = favoriteCharacters.some(character => character.id === id)
+
+  const handleFavoriteCharacter = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (isFavorite) {
+      removeCharacterFromFavorites(id)
+      return
+    }
+
+    addCharacterToFavorites({ id, name, description, thumbnail, ...props })
   }
 
   return (
@@ -48,7 +65,15 @@ export const HeroCard: React.FC<IProps> = ({ id, name, description, thumbnail })
         />
       </div>
       <div className="flex flex-col items-center justify-between w-full">
-        <h3 className="w-full text-2xl font-bold text-dark mt-5 truncate">{name}</h3>
+        <div className="w-full flex justify-between items-center mt-2">
+          <h3 className="w-3/4 text-2xl font-bold text-dark truncate">{name}</h3>
+          <Heart
+            className={cn('w-8 h-8 text-destructive cursor-pointer', {
+              'fill-current': isFavorite
+            })}
+            onClick={handleFavoriteCharacter}
+          />
+        </div>
         <p className="w-full text-[16px] text-dark line-clamp-3 leading-sm mt-4">{description || 'Sem descrição'}</p>
       </div>
     </div>
