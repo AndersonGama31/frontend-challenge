@@ -19,7 +19,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       {isFetched && (
         <>
-          <section className="flex flex-col items-center w-full gap-12 px-8 pb-20 pt-[380px] sm:pt-[400px] sm:px-0 md:pt-[280px] lg:pt-[200px]">
+          <section className="flex flex-col items-center w-full gap-12 px-8 pb-20 pt-[300px] sm:pt-[320px] sm:px-0 md:pt-[280px] lg:pt-[200px]">
             {data?.results?.map(comic => <Components.ComicsCard key={comic.id} {...comic} />)}
           </section>
         </>
