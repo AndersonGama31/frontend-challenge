@@ -63,7 +63,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col items-center flex-grow space-y-8 max-w-screen-xl sm:px-6 lg:px-8 pt-20 relative">
-      <section className="flex flex-col items-center justify-center gap-2 text-center w-full px-[50px]">
+      <section className="flex flex-col items-center justify-center gap-2 text-center w-full">
         <h1 className="w-full text-3xl lg:text-5xl font-black text-dark">EXPLORE O UNIVERSO E CRIE SUA EQUIPE</h1>
         <p className="w-full text-dark opacity-60 mb-5 px-4 sm:p-0">
           Os melhores personagens já feitos em quadrinhos. Fique viciado em uma generosa porção de heróis e vilões!

@@ -19,7 +19,7 @@ export const Parallax: React.FC = () => {
 
   return (
     <div className="w-full relative">
-      <div className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[578px] relative">
+      <div className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[578px] relative w-full">
         <Image src={'/background.svg'} alt="hero" layout="fill" objectFit="cover" priority />
         <h1 className="absolute top-10 left-5 sm:top-16 sm:left-10 md:top-20 md:left-20 text-white text-3xl sm:text-4xl md:text-5xl font-black p-2 sm:p-3 md:p-5 w-full sm:w-full md:w-full leading-tight sm:leading-snug md:leading-xl">
           DESCUBRA TODOS OS

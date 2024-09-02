@@ -11,7 +11,7 @@ export const Input: React.FC<IProps> = ({ ...rest }) => {
       <input
         {...rest}
         type="text"
-        className="h-[75px] text-2xl font-medium px-20 rounded-radius-100 bg-light-pink placeholder:text-pink"
+        className="h-[75px] text-2xl font-medium px-20 rounded-radius-100 bg-light-pink placeholder:text-pink w-full"
         placeholder="Procure por heróis"
       />
     </div>
