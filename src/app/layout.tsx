@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 
+import * as Components from '@/components'
+
 import './globals.css'
 import { cn } from '@/lib/utils'
 import Provider from '@/utils/providers'
@@ -23,8 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <body className={roboto.className}> */}
-      <body className={cn(roboto.className, 'flex justify-center h-screen bg-background overflow-x-hidden')}>
-        <Provider>{children}</Provider>
+      <body
+        className={cn(roboto.className, 'flex flex-col items-center h-full bg-background overflow-x-hidden relative')}
+      >
+        <div className="flex flex-col min-h-screen pb-[82px]">
+          <Provider>{children}</Provider>
+          <Components.Footer />
+        </div>
       </body>
     </html>
   )

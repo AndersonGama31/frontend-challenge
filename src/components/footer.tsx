@@ -1,9 +1,10 @@
 export const Footer: React.FC = () => {
   return (
-    <footer className="flex items-center justify-between px-20 w-full bg-[#202020] h-[82px]">
-      <p className="text-white text-center">Data provided by Marvel. © 2024 MARVEL</p>
-
-      <p className="text-white text-center">Desenvolvido por Anderson Gama</p>
+    <footer className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-20 w-full bg-[#202020] h-auto sm:h-[82px] py-4 sm:py-0 absolute bottom-0 right-0 left-0">
+      <p className="text-white text-center text-xs sm:text-sm mb-2 sm:mb-0">
+        Data provided by Marvel. © {new Date().getFullYear()} Marvel
+      </p>
+      <p className="text-white text-center text-xs sm:text-sm">Desenvolvido por Anderson Gama</p>
     </footer>
   )
 }

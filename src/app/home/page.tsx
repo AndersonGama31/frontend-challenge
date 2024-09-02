@@ -62,7 +62,7 @@ export default function HomePage() {
   const filteredFavorites = favoriteCharacters?.filter(hero => hero.name.toLowerCase().includes(debouncedValue ?? ''))
 
   return (
-    <main className="flex flex-col items-center h-screen space-y-8 max-w-screen-xl sm:px-6 lg:px-8 pt-20">
+    <main className="flex flex-col items-center flex-grow space-y-8 max-w-screen-xl sm:px-6 lg:px-8 pt-20 relative">
       <section className="flex flex-col items-center justify-center gap-2 text-center w-full px-[50px]">
         <h1 className="w-full text-3xl lg:text-5xl font-black text-dark">EXPLORE O UNIVERSO E CRIE SUA EQUIPE</h1>
         <p className="w-full text-dark opacity-60 mb-5 px-4 sm:p-0">
