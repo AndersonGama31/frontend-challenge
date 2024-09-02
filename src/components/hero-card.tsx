@@ -49,6 +49,7 @@ export const HeroCard: React.FC<IProps> = ({ id, name, description, thumbnail, .
 
   return (
     <div
+      data-cy="hero-card"
       className="
       flex flex-col items-center w-[273px] h-[338px] rounded-radius-10
       border-[1px] border-solid border-light-gray bg-white shadow-md p-4
@@ -66,8 +67,11 @@ export const HeroCard: React.FC<IProps> = ({ id, name, description, thumbnail, .
       </div>
       <div className="flex flex-col items-center justify-between w-full">
         <div className="w-full flex justify-between items-center mt-2">
-          <h3 className="w-3/4 text-2xl font-bold text-dark truncate">{name}</h3>
+          <h3 data-cy="hero-card-name" className="w-3/4 text-2xl font-bold text-dark truncate">
+            {name}
+          </h3>
           <Heart
+            data-cy="favorite-button"
             className={cn('w-8 h-8 text-destructive cursor-pointer', {
               'fill-current': isFavorite
             })}

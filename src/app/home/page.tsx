@@ -69,7 +69,7 @@ export default function HomePage() {
           Os melhores personagens já feitos em quadrinhos. Fique viciado em uma generosa porção de heróis e vilões!
         </p>
         <div className="flex items-center justify-center w-full px-4 lg:max-w-[780px] sm:px-0 mt-2">
-          <Component.Input type="text" name="nameStartsWith" onChange={handleChangeParams} />
+          <Component.Input data-cy="search-input" type="text" name="nameStartsWith" onChange={handleChangeParams} />
         </div>
       </section>
 
@@ -77,27 +77,29 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row items-center justify-between w-full">
           <p className="text-lg sm:text-2xl font-semibold text-light-gray">Encontrados {totalResults()} heróis</p>
 
-          <div className="flex items-center justify-center gap-4 mt-4 sm:mt-0">
+          <div
+            className="flex items-center justify-center gap-4 mt-4 sm:mt-0"
+            onClick={() => setFilterFavorites(!filterFavorites)}
+          >
             <Heart
+              data-cy="favorites-filter"
               className={cn('w-6 h-6 sm:w-8 sm:h-8 text-destructive cursor-pointer', {
                 'fill-current': filterFavorites
               })}
             />
-            <p
-              className="text-lg sm:text-2xl font-medium text-[#f5706f] cursor-pointer"
-              onClick={() => setFilterFavorites(!filterFavorites)}
-            >
-              Somente favoritos
-            </p>
+            <p className="text-lg sm:text-2xl font-medium text-[#f5706f] cursor-pointer">Somente favoritos</p>
           </div>
         </div>
 
-        {isLoading && <Loader className="w-20 h-20 animate-spin mt-10" />}
+        {isLoading && <Loader data-cy="page-loader" className="w-20 h-20 animate-spin mt-10" />}
 
         {isFetched && (
           <>
             {filterFavorites ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 mt-8">
+              <div
+                data-cy="hero-card-favorites"
+                className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 mt-8"
+              >
                 {filteredFavorites?.map(hero => <Component.HeroCard key={hero.id} {...hero} />)}
               </div>
             ) : (
@@ -111,7 +113,7 @@ export default function HomePage() {
           </>
         )}
 
-        {isFetchingNextPage && <Loader className="w-10 h-10 animate-spin" />}
+        {isFetchingNextPage && <Loader data-cy="page-loader" className="w-10 h-10 animate-spin" />}
       </section>
     </main>
   )
