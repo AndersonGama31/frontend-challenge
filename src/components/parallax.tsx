@@ -37,7 +37,7 @@ export const Parallax: React.FC = () => {
           <h3 className="w-full text-2xl sm:text-3xl md:text-[42px] font-bold text-dark mt-3 md:mt-5 truncate text-center md:text-left">
             {character?.name || 'Sem nome'}
           </h3>
-          <p className="w-full text-lg sm:text-xl md:text-[24px] text-dark line-clamp-4 leading-tight sm:leading-snug md:leading-[28px] mt-2 md:mt-4 text-center md:text-left">
+          <p className="w-full text-lg sm:text-xl md:text-[24px] text-dark line-clamp-2 md:line-clamp-4 leading-tight sm:leading-snug md:leading-[28px] mt-2 md:mt-4 text-center md:text-left">
             {character?.description || 'Sem descrição'}
           </p>
         </div>
